@@ -1,7 +1,7 @@
-import ExampleComponent from './'
+import { ProgressChart } from './';
 
-describe('ExampleComponent', () => {
+describe('Progress Chart', () => {
   it('is truthy', () => {
-    expect(ExampleComponent).toBeTruthy()
-  })
-})
+    expect(ProgressChart).toBeTruthy();
+  });
+});
