@@ -6,7 +6,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './styles.css';
-import { TYPES_LABEL_POSITION } from './consts';
+import { TYPES_LABEL_POSITION, TYPES_LAYOUT } from './consts';
 import { qualitativeColorFormatter, numberValueFormatter } from './utils';
 
 const barWidth = (value = 0, total) => {
@@ -23,11 +23,21 @@ const barWidth = (value = 0, total) => {
 
 class ProgressItem extends PureComponent {
   renderLabel(width) {
-    const { colorFormatter, valueFormatter, index, total, value } = this.props;
-    let { labelPosition } = this.props;
+    const { colorFormatter, valueFormatter, index, name, nameDelimiter, total, value, hideLabel } = this.props;
 
+    if (hideLabel) {
+      return null;
+    }
+
+    let { labelPosition } = this.props;
     const color = colorFormatter(value, index);
-    const label = valueFormatter(value, index);
+    const labelParts = [valueFormatter(value, index)];
+
+    if (!!name) {
+      labelParts.unshift(nameDelimiter);
+      labelParts.unshift(name);
+    }
+
     const labelStyle = { color };
 
     if (labelPosition === 'inline') {
@@ -40,7 +50,7 @@ class ProgressItem extends PureComponent {
 
     return (
       <div className={styles[`label-${labelPosition}`]} style={labelStyle}>
-        {label}
+        {labelParts.join(' ')}
       </div>
     );
   }
@@ -75,9 +85,13 @@ class ProgressItem extends PureComponent {
 
 ProgressItem.propTypes = {
   colorFormatter: PropTypes.func,
+  hideLabel: PropTypes.boolean,
   hideOutline: PropTypes.boolean,
   index: PropTypes.number,
   labelPosition: PropTypes.oneOf(TYPES_LABEL_POSITION),
+  layout: PropTypes.oneOf(TYPES_LAYOUT).isRequired,
+  name: PropTypes.string,
+  nameDelimiter: PropTypes.string,
   total: PropTypes.number.isRequired,
   value: PropTypes.number.isRequired,
   valueFormatter: PropTypes.func
@@ -85,9 +99,11 @@ ProgressItem.propTypes = {
 
 ProgressItem.defaultProps = {
   colorFormatter: qualitativeColorFormatter,
+  hideLabel: false,
   hideOutline: false,
   index: 0,
   labelPosition: TYPES_LABEL_POSITION[0],
+  nameDelimiter: '',
   valueFormatter: numberValueFormatter
 };
 

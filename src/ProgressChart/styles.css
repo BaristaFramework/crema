@@ -8,6 +8,15 @@
 .progressItem {
 }
 
+.progressItem-horizontal {
+  composes: progressItem;
+}
+
+.progressItem-vertical {
+  composes: progressItem;
+  display: inline-block;
+}
+
 .barWrapper {
   position: relative;
   border: 1px solid transparent;

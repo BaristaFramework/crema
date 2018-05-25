@@ -11,16 +11,7 @@ import ProgressItem from './ProgressItem';
 
 class ProgressChart extends PureComponent {
   renderItems() {
-    const {
-      items,
-      totalValue,
-      labelPosition,
-      layout,
-      valueKey,
-      colorFormatter,
-      valueFormatter,
-      hideOutline
-    } = this.props;
+    const { items, totalValue, nameKey, valueKey, layout } = this.props;
     if (items.length === 0) {
       return null; // TODO show empty string
     }
@@ -30,16 +21,16 @@ class ProgressChart extends PureComponent {
 
     return items.map((item, idx) => {
       const value = item[valueKey];
+      const name = nameKey ? item[nameKey] : undefined;
+
       return (
         <ProgressItem
           key={item.key || `pi_{idx}`}
           index={idx}
+          name={name}
           value={value}
           total={isHorizontal ? value : total}
-          labelPosition={labelPosition}
-          colorFormatter={colorFormatter}
-          valueFormatter={valueFormatter}
-          hideOutline={hideOutline}
+          {...this.props}
         />
       );
     });
@@ -54,10 +45,13 @@ class ProgressChart extends PureComponent {
 
 ProgressChart.propTypes = {
   colorFormatter: PropTypes.func,
+  hideLabel: PropTypes.boolean,
   hideOutline: PropTypes.boolean,
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
   labelPosition: PropTypes.oneOf(TYPES_LABEL_POSITION),
   layout: PropTypes.oneOf(TYPES_LAYOUT),
+  nameDelimiter: PropTypes.string,
+  nameKey: PropTypes.string,
   totalValue: PropTypes.number,
   valueFormatter: PropTypes.func,
   valueKey: PropTypes.string.isRequired
