@@ -3,3 +3,14 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+h2 {
+  margin: 1rem;
+  max-width: 70%;
+}
+
+.chartWrapper {
+  font-size: 24px;
+  margin: 1rem;
+  max-width: 70%;
+}

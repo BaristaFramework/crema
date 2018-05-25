@@ -1,4 +1,25 @@
-const COLORS = ['#8dd3c7', '#ffffb3', '#bebada', '#fb8072', '#80b1d3', '#fdb462', '#b3de69', '#fccde5', '#d9d9d9'];
+/**
+ * Progress chart Helpers
+ */
+
+/**
+ * Progress Item Helpers
+ */
+
+const COLORS = [
+  '#9dbcea',
+  '#e4e4ac',
+  '#67c6f2',
+  '#e9b198',
+  '#5ad0da',
+  '#eaaecf',
+  '#b3e5b9',
+  '#c4b7ea',
+  '#bcbe8b',
+  '#8fd4e6',
+  '#8bc5ab',
+  '#95eadc'
+];
 
 export const qualitativeColorFormatter = (value, idx) => {
   return COLORS[idx % COLORS.length];

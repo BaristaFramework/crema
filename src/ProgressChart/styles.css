@@ -1,0 +1,58 @@
+/* CSS for ProgressItem */
+
+.progressChart {
+  min-height: 240px;
+  min-width: 240px;
+}
+
+.progressItem {
+}
+
+.barWrapper {
+  position: relative;
+  border: 1px solid transparent;
+  margin: 0 0 0.25em;
+}
+
+.bar {
+  width: 100%;
+  height: 1.25em;
+}
+
+.label {
+  font-size: 1em;
+  line-height: 1.25em;
+}
+
+.label-left {
+  composes: label;
+  line-height: 1em;
+  position: absolute;
+  top: 0;
+  left: 0.25em;
+  padding: 0.25em;
+  mix-blend-mode: color-dodge;
+}
+
+.label-right {
+  composes: label-left;
+  left: unset;
+  right: 0.25em;
+}
+
+.label-inline {
+  composes: label-left;
+  left: unset;
+  mix-blend-mode: unset;
+}
+
+.label-above {
+  composes: label;
+  line-height: 1em;
+  padding: 0.25em 0 0;
+}
+
+.label-below {
+  composes: label;
+  padding: 0 0 0.25em;
+}
