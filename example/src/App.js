@@ -52,6 +52,23 @@ const TEST = [
   return item;
 });
 
+const valueLabel = value => {
+  let val = value;
+  let abbr = '';
+
+  if (val / 1000 >= 1) {
+    val = val / 1000;
+    abbr = 'K';
+  }
+
+  if (val / 1000 >= 1) {
+    val = val / 1000;
+    abbr = 'M';
+  }
+
+  return `${val}${abbr}`;
+};
+
 export default class App extends Component {
   render() {
     return (
@@ -96,6 +113,16 @@ export default class App extends Component {
         <h2> Percent of Max - inline </h2>
         <div className="chartWrapper">
           <ProgressChart items={TEST} valueKey="value" labelPosition="inline" totalValue={100 * 10000} />
+        </div>
+
+        <h2> Percent of total - horizontal</h2>
+        <div className="chartWrapper">
+          <ProgressChart items={TEST} valueKey="value" layout="horizontal" valueFormatter={valueLabel} />
+        </div>
+
+        <h2> Percent of total - horizontal above</h2>
+        <div className="chartWrapper">
+          <ProgressChart items={TEST} valueKey="value" layout="horizontal" labelPosition="above" />
         </div>
       </Fragment>
     );

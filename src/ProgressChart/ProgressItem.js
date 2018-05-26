@@ -56,11 +56,16 @@ class ProgressItem extends PureComponent {
   }
 
   renderBar() {
-    const { colorFormatter, index, total, value, labelPosition, hideOutline } = this.props;
+    const { colorFormatter, index, total, value, labelPosition, hideOutline, layout } = this.props;
     const color = colorFormatter(value, index);
-    const barWrapperStyle = { borderColor: hideOutline ? 'transparent' : color };
     const width = barWidth(value, total);
-    const barStyle = { backgroundColor: color, width };
+    const horizontal = layout === 'horizontal';
+
+    const barWrapperStyle = {
+      borderColor: hideOutline ? 'transparent' : color
+    };
+
+    const barStyle = { backgroundColor: color, width: horizontal ? '100%' : width };
 
     return (
       <div className={styles.barWrapper} style={barWrapperStyle}>
@@ -70,16 +75,44 @@ class ProgressItem extends PureComponent {
     );
   }
 
-  render() {
-    const { labelPosition } = this.props;
+  renderVertical() {
+    const { labelPosition, layout } = this.props;
 
     return (
-      <div className={styles.progressItem}>
+      <div className={styles['progressItem-vertical']}>
         {labelPosition === 'above' ? this.renderLabel() : null}
         {this.renderBar()}
         {labelPosition === 'below' ? this.renderLabel() : null}
       </div>
     );
+  }
+
+  renderHorizontal() {
+    const { colorFormatter, index, total, value, labelPosition, hideOutline, layout } = this.props;
+    const color = colorFormatter(value, index);
+    const width = barWidth(value, total);
+    const horizontal = layout === 'horizontal';
+    const barStyle = { backgroundColor: color, width: '100%' };
+    const itemStyle = { width };
+
+    return (
+      <div className={styles['progressItem-horizontal']} style={itemStyle}>
+        {labelPosition === 'above' ? this.renderLabel() : null}
+        <div className={styles.barWrapper} style={{ borderWidth: 0 }}>
+          <div className={styles.bar} style={barStyle} aria-hidden="true" />
+          {labelPosition !== 'above' && labelPosition !== 'below' ? this.renderLabel(width) : null}
+        </div>
+        {labelPosition === 'below' ? this.renderLabel() : null}
+      </div>
+    );
+  }
+
+  render() {
+    if (this.props.layout === 'vertical') {
+      return this.renderVertical();
+    }
+
+    return this.renderHorizontal();
   }
 }
 

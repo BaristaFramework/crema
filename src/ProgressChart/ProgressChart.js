@@ -11,12 +11,11 @@ import ProgressItem from './ProgressItem';
 
 class ProgressChart extends PureComponent {
   renderItems() {
-    const { items, totalValue, nameKey, valueKey, layout } = this.props;
+    const { items, totalValue, nameKey, valueKey } = this.props;
     if (items.length === 0) {
       return null; // TODO show empty string
     }
 
-    const isHorizontal = layout === 'horizontal';
     const total = totalValue || items.reduce((tot, item) => tot + item[valueKey], 0);
 
     return items.map((item, idx) => {
@@ -29,7 +28,7 @@ class ProgressChart extends PureComponent {
           index={idx}
           name={name}
           value={value}
-          total={isHorizontal ? value : total}
+          total={total}
           {...this.props}
         />
       );
@@ -39,7 +38,8 @@ class ProgressChart extends PureComponent {
   }
 
   render() {
-    return <div className={styles.progressChart}>{this.renderItems()}</div>;
+    const { layout } = this.props;
+    return <div className={styles[`progressChart-${layout}`]}>{this.renderItems()}</div>;
   }
 }
 
