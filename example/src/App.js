@@ -111,7 +111,7 @@ export default class App extends Component {
         </div>
 
         <h2> Percent of Max - inline </h2>
-        <div className="chartWrapper">
+        <div className="chartWrapper" style={{ fontSize: '16px' }}>
           <ProgressChart items={TEST} valueKey="value" labelPosition="inline" totalValue={100 * 10000} />
         </div>
 
@@ -123,6 +123,16 @@ export default class App extends Component {
         <h2> Percent of total - horizontal above</h2>
         <div className="chartWrapper">
           <ProgressChart items={TEST} valueKey="value" layout="horizontal" labelPosition="above" />
+        </div>
+
+        <h2> Percent of total - horizontal below</h2>
+        <div className="chartWrapper">
+          <ProgressChart items={TEST} valueKey="value" layout="horizontal" labelPosition="below" />
+        </div>
+
+        <h2> Percent of total - horizontal inline</h2>
+        <div className="chartWrapper">
+          <ProgressChart items={TEST} valueKey="value" layout="horizontal" labelPosition="inline" />
         </div>
       </Fragment>
     );

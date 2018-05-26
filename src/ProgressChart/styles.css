@@ -57,6 +57,7 @@
   left: 0.25em;
   padding: 0.25em;
   mix-blend-mode: color-dodge;
+  transform: translate(0, -0.06255em);
 }
 
 .label-right {
@@ -76,6 +77,7 @@
   composes: label;
   line-height: 1em;
   padding: 0.25em 0 0;
+  transform: translate(0, -0.06255em);
 }
 
 .label-below {
