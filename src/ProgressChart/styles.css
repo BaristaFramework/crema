@@ -1,0 +1,86 @@
+/* CSS for ProgressItem */
+
+.progressChart {
+}
+
+.progressChart-horizontal {
+  composes: progressChart;
+  display: flex;
+  width: 100%;
+}
+
+.progressChart-vertical {
+  composes: progressChart;
+  min-height: 240px;
+  min-width: 240px;
+}
+
+.progressItem {
+}
+
+.progressItem-horizontal {
+  composes: progressItem;
+  flex: '1 1 auto';
+  overflow: hidden;
+}
+
+.progressItem-vertical {
+  composes: progressItem;
+  margin: 0 0 0.25em;
+}
+
+.barWrapper {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid transparent;
+}
+
+.bar {
+  width: 100%;
+  height: 1.25em;
+}
+
+.label {
+  font-size: 1em;
+  line-height: 1.25em;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.label-left {
+  composes: label;
+  line-height: 1em;
+  position: absolute;
+  top: 0;
+  left: 0.25em;
+  padding: 0.25em;
+  mix-blend-mode: color-dodge;
+  transform: translate(0, -0.06255em);
+}
+
+.label-right {
+  composes: label-left;
+  width: auto;
+  left: unset;
+  right: 0.25em;
+}
+
+.label-inline {
+  composes: label-left;
+  left: unset;
+  mix-blend-mode: unset;
+}
+
+.label-above {
+  composes: label;
+  line-height: 1em;
+  padding: 0.25em 0 0;
+  transform: translate(0, -0.06255em);
+}
+
+.label-below {
+  composes: label;
+  padding: 0 0 0.25em;
+}

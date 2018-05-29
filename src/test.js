@@ -1,7 +1,7 @@
-import ExampleComponent from './'
+import Index from './';
 
-describe('ExampleComponent', () => {
+describe('Index Test', () => {
   it('is truthy', () => {
-    expect(ExampleComponent).toBeTruthy()
-  })
-})
+    expect(Index).toBeTruthy();
+  });
+});

@@ -1,13 +1,14 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react';
 
-import ExampleComponent from '@baristaframework/crema'
+import ProgressChartDemo from './ProgressChartDemo';
 
 export default class App extends Component {
-  render () {
+  render() {
     return (
-      <div>
-        <ExampleComponent text='Modern React component module' />
-      </div>
-    )
+      <Fragment>
+        <ProgressChartDemo />
+        <hr />
+      </Fragment>
+    );
   }
 }
