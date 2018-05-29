@@ -1,7 +1,7 @@
-import { ProgressChart } from './';
+import Index from './';
 
-describe('Progress Chart', () => {
+describe('Index Test', () => {
   it('is truthy', () => {
-    expect(ProgressChart).toBeTruthy();
+    expect(Index).toBeTruthy();
   });
 });
