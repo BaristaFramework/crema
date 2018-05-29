@@ -118,8 +118,8 @@ class ProgressItem extends PureComponent {
 
 ProgressItem.propTypes = {
   colorFormatter: PropTypes.func,
-  hideLabel: PropTypes.boolean,
-  hideOutline: PropTypes.boolean,
+  hideLabel: PropTypes.bool,
+  hideOutline: PropTypes.bool,
   index: PropTypes.number,
   labelPosition: PropTypes.oneOf(TYPES_LABEL_POSITION),
   layout: PropTypes.oneOf(TYPES_LAYOUT).isRequired,

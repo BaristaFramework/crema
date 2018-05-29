@@ -45,8 +45,8 @@ class ProgressChart extends PureComponent {
 
 ProgressChart.propTypes = {
   colorFormatter: PropTypes.func,
-  hideLabel: PropTypes.boolean,
-  hideOutline: PropTypes.boolean,
+  hideLabel: PropTypes.bool,
+  hideOutline: PropTypes.bool,
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
   labelPosition: PropTypes.oneOf(TYPES_LABEL_POSITION),
   layout: PropTypes.oneOf(TYPES_LAYOUT),
@@ -54,12 +54,13 @@ ProgressChart.propTypes = {
   nameKey: PropTypes.string,
   totalValue: PropTypes.number,
   valueFormatter: PropTypes.func,
-  valueKey: PropTypes.string.isRequired
+  valueKey: PropTypes.string
 };
 
 ProgressChart.defaultProps = {
   labelPosition: TYPES_LABEL_POSITION[0],
-  layout: TYPES_LAYOUT[0]
+  layout: TYPES_LAYOUT[0],
+  valueKey: 'value'
 };
 
 export default ProgressChart;
