@@ -1,4 +1,4 @@
-import Index from './';
+import Index from '../';
 
 describe('Index Test', () => {
   it('is truthy', () => {
