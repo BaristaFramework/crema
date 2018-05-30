@@ -1,4 +1,4 @@
-import { ProgressItem } from './';
+import { ProgressItem } from '../';
 
 describe('Progress Item', () => {
   it('It exists', () => {
