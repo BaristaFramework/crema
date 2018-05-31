@@ -153,6 +153,10 @@ describe('Progress Chart', () => {
     <ProgressChart items={TEST_DATA} layout="horizontal" valueFormatter={valueLabel} />;
   });
 
+  it('Using horizontal layout and above label', () => {
+    <ProgressChart items={TEST_DATA} layout="horizontal" labelPosition="above" nameKey="name" />;
+  });
+
   it('Using name with delimiter', () => {
     <ProgressChart items={TEST_DATA} nameKey="name" nameDelimiter="-" labelPosition="above" totalValue={100 * 10000} />;
   });
