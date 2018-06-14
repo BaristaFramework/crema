@@ -69,28 +69,32 @@ const valueLabel = value => {
   return `${val}${abbr}`;
 };
 
+const opacityColorFormatter = (value, idx, total) => {
+  return `rgba(0, 0, 0, ${value / total})`;
+};
+
 export default class BlockChartDemo extends Component {
   render() {
     return (
       <Fragment>
         <h1> Block Chart Examples </h1>
 
-        <h2> Percent of total </h2>
+        <h2> Default color values </h2>
         <div className="chartWrapper">
           <BlockChart items={TEST} valueKey="value" />
         </div>
 
-        <h2> Percent of Max </h2>
+        <h2> Custom color formatter </h2>
         <div className="chartWrapper">
-          <BlockChart items={TEST} valueKey="value" totalValue={100 * 10000} />
+          <BlockChart items={TEST} valueKey="value" totalValue={100 * 10000} colorFormatter={opacityColorFormatter} />
         </div>
 
-        <h2> Percent of Max - larger </h2>
+        <h2> Scaled by font size </h2>
         <div className="chartWrapper" style={{ fontSize: '60px' }}>
           <BlockChart items={TEST} valueKey="value" labelPosition="inline" totalValue={100 * 10000} />
         </div>
 
-        <h2> Percent of total - constrained</h2>
+        <h2> Constrained </h2>
         <div className="chartWrapper" style={{ width: '123px', maxWidth: 'auto' }}>
           <BlockChart items={TEST} valueKey="value" layout="horizontal" valueFormatter={valueLabel} />
         </div>
