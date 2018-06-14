@@ -1,12 +1,37 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  height: 100%;
 }
 
+h1,
 h2 {
   margin: 1rem;
   max-width: 70%;
+}
+
+.crema {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+}
+
+.main-nav {
+  flex: 0 0 30%;
+  background: #ccc;
+}
+
+.example {
+  flex: 1 1 auto;
+  background: #fff;
+  overflow: auto;
 }
 
 .chartWrapper {
