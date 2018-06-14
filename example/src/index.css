@@ -28,6 +28,10 @@ h2 {
   background: #ccc;
 }
 
+.main-nav li {
+  margin: 0.75em 0;
+}
+
 .example {
   flex: 1 1 auto;
   background: #fff;
