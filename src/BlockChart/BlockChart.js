@@ -37,7 +37,6 @@ BlockChart.propTypes = {
   colorFormatter: PropTypes.func,
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
   totalValue: PropTypes.number,
-  valueFormatter: PropTypes.func,
   valueKey: PropTypes.string
 };
 

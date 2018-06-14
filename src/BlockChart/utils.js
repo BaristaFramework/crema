@@ -24,11 +24,3 @@ const COLORS = [
 export const qualitativeColorFormatter = (value, idx) => {
   return COLORS[idx % COLORS.length];
 };
-
-export const numberValueFormatter = (value, idx) => {
-  if (isNaN(value)) {
-    return '-';
-  }
-
-  return Number(value).toLocaleString();
-};
