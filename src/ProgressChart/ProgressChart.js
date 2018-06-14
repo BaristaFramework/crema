@@ -24,7 +24,7 @@ class ProgressChart extends PureComponent {
 
       return (
         <ProgressItem
-          key={item.key || `pi_{idx}`}
+          key={item.key || `pi_${idx}`}
           index={idx}
           name={name}
           value={value}
@@ -33,8 +33,6 @@ class ProgressChart extends PureComponent {
         />
       );
     });
-
-    return pitems;
   }
 
   render() {

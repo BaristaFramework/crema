@@ -1,4 +1,5 @@
 import React from 'react';
+import renderer from 'react-test-renderer';
 import { BlockChart } from '../';
 
 const TEST_DATA = [
@@ -74,10 +75,14 @@ describe('Block Chart', () => {
   });
 
   it('Using Defaults', () => {
-    <BlockChart items={TEST_DATA} />;
+    renderer.create(<BlockChart items={TEST_DATA} />);
   });
 
-  it('Supply total value', () => {
-    <BlockChart items={TEST_DATA} nameKey="name" totalValue={100 * 10000} />;
+  it('Using Empty Items', () => {
+    renderer.create(<BlockChart items={[]} />);
+  });
+
+  it('Supply Total Value', () => {
+    renderer.create(<BlockChart items={TEST_DATA} nameKey="name" totalValue={100 * 10000} />);
   });
 });

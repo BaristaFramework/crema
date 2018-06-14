@@ -20,10 +20,8 @@ class BlockChart extends PureComponent {
     return items.map((item, idx) => {
       const value = item[valueKey];
 
-      return <BlockItem key={item.key || `pi_{idx}`} index={idx} value={value} total={total} {...this.props} />;
+      return <BlockItem key={item.key || `pi_${idx}`} index={idx} value={value} total={total} {...this.props} />;
     });
-
-    return pitems;
   }
 
   render() {

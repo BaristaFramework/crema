@@ -1,4 +1,5 @@
 import React from 'react';
+import renderer from 'react-test-renderer';
 import { ProgressChart } from '../';
 
 const TEST_DATA = [
@@ -146,26 +147,40 @@ describe('Progress Chart', () => {
   });
 
   it('Using Defaults', () => {
-    <ProgressChart items={TEST_DATA} />;
+    renderer.create(<ProgressChart items={TEST_DATA} />);
+  });
+
+  it('Using Empty Items', () => {
+    renderer.create(<ProgressChart items={[]} />);
   });
 
   it('Using horizontal layout and custom formatter', () => {
-    <ProgressChart items={TEST_DATA} layout="horizontal" valueFormatter={valueLabel} />;
+    renderer.create(<ProgressChart items={TEST_DATA} layout="horizontal" valueFormatter={valueLabel} />);
   });
 
   it('Using horizontal layout and above label', () => {
-    <ProgressChart items={TEST_DATA} layout="horizontal" labelPosition="above" nameKey="name" />;
+    renderer.create(<ProgressChart items={TEST_DATA} layout="horizontal" labelPosition="above" nameKey="name" />);
   });
 
   it('Using name with delimiter', () => {
-    <ProgressChart items={TEST_DATA} nameKey="name" nameDelimiter="-" labelPosition="above" totalValue={100 * 10000} />;
+    renderer.create(
+      <ProgressChart
+        items={TEST_DATA}
+        nameKey="name"
+        nameDelimiter="-"
+        labelPosition="above"
+        totalValue={100 * 10000}
+      />
+    );
   });
 
   it('Using hidden outlines', () => {
-    <ProgressChart items={TEST_DATA} labelPosition="below" totalValue={100 * 10000} hideOutline={true} />;
+    renderer.create(
+      <ProgressChart items={TEST_DATA} labelPosition="below" totalValue={100 * 10000} hideOutline={true} />
+    );
   });
 
   it('Using hidden labels', () => {
-    <ProgressChart items={TEST_DATA} labelPosition="inline" hideLabel={true} />;
+    renderer.create(<ProgressChart items={TEST_DATA} labelPosition="inline" hideLabel={true} />);
   });
 });
