@@ -91,7 +91,7 @@ export default class BlockChartDemo extends Component {
         </div>
 
         <h2> Percent of total - constrained</h2>
-        <div className="chartWrapper" style={{ width: '5em', maxWidth: 'auto' }}>
+        <div className="chartWrapper" style={{ width: '123px', maxWidth: 'auto' }}>
           <BlockChart items={TEST} valueKey="value" layout="horizontal" valueFormatter={valueLabel} />
         </div>
       </Fragment>
