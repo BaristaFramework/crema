@@ -73,6 +73,8 @@ export default class ProgressChartDemo extends Component {
   render() {
     return (
       <Fragment>
+        <h1> Progress Chart Examples </h1>
+
         <h2> Percent of total </h2>
         <div className="chartWrapper">
           <ProgressChart items={TEST} valueKey="value" />

@@ -10,10 +10,6 @@ import { TYPES_LABEL_POSITION, TYPES_LAYOUT } from './consts';
 import { qualitativeColorFormatter, numberValueFormatter } from './utils';
 
 const barWidth = (value = 0, total) => {
-  if (!total) {
-    return '100%';
-  }
-
   if (total < 0) {
     return '0';
   }
