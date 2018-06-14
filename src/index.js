@@ -1,5 +1,1 @@
-import ProgressChart from './ProgressChart';
-
-export default {
-  ProgressChart
-};
+export { default as ProgressChart } from './ProgressChart';
