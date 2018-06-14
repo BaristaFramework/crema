@@ -68,78 +68,6 @@ const valueLabel = value => {
   return `${val}${abbr}`;
 };
 
-/*
-export default class BlockChartDemo extends Component {
-  render() {
-    return (
-      <Fragment>
-        <h2> Percent of total </h2>
-        <div className="chartWrapper">
-          <BlockChart items={TEST} valueKey="value" />
-        </div>
-        <h2> Percent of total - Right </h2>
-        <div className="chartWrapper">
-          <BlockChart items={TEST} valueKey="value" labelPosition="right" />
-        </div>
-
-        <h2> Percent of total - inline </h2>
-        <div className="chartWrapper">
-          <BlockChart items={TEST} valueKey="value" labelPosition="inline" />
-        </div>
-
-        <h2> Percent of Max </h2>
-        <div className="chartWrapper">
-          <BlockChart
-            items={TEST}
-            valueKey="value"
-            nameKey="name"
-            nameDelimiter="-"
-            labelPosition="above"
-            totalValue={100 * 10000}
-          />
-        </div>
-
-        <h2> Percent of Max - below </h2>
-        <div className="chartWrapper">
-          <BlockChart
-            items={TEST}
-            valueKey="value"
-            labelPosition="below"
-            totalValue={100 * 10000}
-            hideOutline={true}
-          />
-        </div>
-
-        <h2> Percent of Max - inline </h2>
-        <div className="chartWrapper" style={{ fontSize: '16px' }}>
-          <BlockChart items={TEST} valueKey="value" labelPosition="inline" totalValue={100 * 10000} />
-        </div>
-
-        <h2> Percent of total - horizontal</h2>
-        <div className="chartWrapper">
-          <BlockChart items={TEST} valueKey="value" layout="horizontal" valueFormatter={valueLabel} />
-        </div>
-
-        <h2> Percent of total - horizontal above</h2>
-        <div className="chartWrapper">
-          <BlockChart items={TEST} valueKey="value" layout="horizontal" labelPosition="above" />
-        </div>
-
-        <h2> Percent of total - horizontal below</h2>
-        <div className="chartWrapper">
-          <BlockChart items={TEST} valueKey="value" layout="horizontal" labelPosition="below" />
-        </div>
-
-        <h2> Percent of total - horizontal inline</h2>
-        <div className="chartWrapper">
-          <BlockChart items={TEST} valueKey="value" layout="horizontal" labelPosition="inline" />
-        </div>
-      </Fragment>
-    );
-  }
-}
-*/
-
 describe('Block Chart', () => {
   it('It exists', () => {
     expect(BlockChart).toBeTruthy();
@@ -149,19 +77,7 @@ describe('Block Chart', () => {
     <BlockChart items={TEST_DATA} />;
   });
 
-  it('Using horizontal layout and custom formatter', () => {
-    <BlockChart items={TEST_DATA} layout="horizontal" valueFormatter={valueLabel} />;
-  });
-
-  it('Using name with delimiter', () => {
-    <BlockChart items={TEST_DATA} nameKey="name" nameDelimiter="-" labelPosition="above" totalValue={100 * 10000} />;
-  });
-
-  it('Using hidden outlines', () => {
-    <BlockChart items={TEST_DATA} labelPosition="below" totalValue={100 * 10000} hideOutline={true} />;
-  });
-
-  it('Using hidden labels', () => {
-    <BlockChart items={TEST_DATA} labelPosition="inline" hideLabel={true} />;
+  it('Supply total value', () => {
+    <BlockChart items={TEST_DATA} nameKey="name" totalValue={100 * 10000} />;
   });
 });

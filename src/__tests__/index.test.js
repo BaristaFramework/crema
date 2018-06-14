@@ -1,7 +1,7 @@
-import Index from '../';
+import * as Index from '../';
 
 describe('Index Test', () => {
-  it('is truthy', () => {
-    expect(Index).toBeTruthy();
+  it('it Exists', () => {
+    return expect(Index).toBeDefined();
   });
 });
