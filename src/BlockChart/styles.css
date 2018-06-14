@@ -1,12 +1,20 @@
 /* CSS for Block charts and items*/
 
 .blockChart {
+  box-sizing: border-box;
+  margin: 0;
   padding: 0 0.125em 0.125em 0;
+  background: grey;
 }
 
 .blockItem {
   box-sizing: border-box;
-  margin: 0.875em 0 0 0.875em;
+  display: inline-flex;
+  margin: 0;
+  padding: 0;
+  border: 1em solid transparent;
+  border-width: 0.125em 0 0 0.125em;
+  background-clip: content-box;
   height: 1em;
   width: 1em;
 }

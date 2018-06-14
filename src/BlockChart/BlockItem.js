@@ -6,7 +6,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './styles.css';
-import { TYPES_LABEL_POSITION, TYPES_LAYOUT } from './consts';
+// TODO import { TYPES_LABEL_POSITION, TYPES_LAYOUT } from './consts';
 import { qualitativeColorFormatter } from './utils';
 
 class BlockItem extends PureComponent {
@@ -14,7 +14,7 @@ class BlockItem extends PureComponent {
     const { colorFormatter, index, total, value } = this.props;
     const backgroundColor = colorFormatter(value, index, total);
     const itemStyle = { backgroundColor };
-    return <b className={styles.BlockItem} style={itemStyle} />;
+    return <b className={styles.blockItem} style={itemStyle} />;
   }
 }
 

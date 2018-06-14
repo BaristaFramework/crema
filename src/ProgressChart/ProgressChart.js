@@ -43,7 +43,7 @@ class ProgressChart extends PureComponent {
   }
 }
 
-ProgressChart.item = ProgressItem;
+ProgressChart.Item = ProgressItem;
 
 ProgressChart.propTypes = {
   colorFormatter: PropTypes.func,

@@ -27,11 +27,11 @@ class BlockChart extends PureComponent {
   }
 
   render() {
-    return <div className={styles.BlockChart}>{this.renderItems()}</div>;
+    return <div className={styles.blockChart}>{this.renderItems()}</div>;
   }
 }
 
-BlockChart.item = BlockItem;
+BlockChart.Item = BlockItem;
 
 BlockChart.propTypes = {
   colorFormatter: PropTypes.func,
