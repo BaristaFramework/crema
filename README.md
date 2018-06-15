@@ -12,17 +12,7 @@ npm install --save @baristaframework/crema
 
 ## Usage
 
-```jsx
-import React, { Component } from 'react';
-
-import MyComponent from '@baristaframework/crema';
-
-class Example extends Component {
-  render() {
-    return <MyComponent />;
-  }
-}
-```
+Coming Soon
 
 ## License
 
